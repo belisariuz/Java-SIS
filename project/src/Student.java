@@ -29,7 +29,14 @@ public class Student extends User {
     }
 
     public boolean dropCourse(String courseId) {
-        return enrolledCourses.removeIf(e -> e.getCourseId().equals(courseId));
+        for (int i = 0; i < enrolledCourses.size(); i++) {
+            Enrollment enrollment = enrolledCourses.get(i);
+            if (enrollment.getCourseId().equals(courseId)) {
+                enrolledCourses.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void viewGrades() {
