@@ -73,4 +73,6 @@ public abstract class User {
         return false;
     }
 
+    public abstract void displayDashboard();
+    public abstract void generateReport();
 }
