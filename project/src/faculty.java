@@ -1,60 +1,36 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-public class faculty {
-    private String facultyId;
-    private String department;
-    private String expertise;
-    private List<String> coursesTeaching;
-    private String officeHours;
-    private String officeLocation;
-    private Map<String, Map<String, Double>> gradebook;
-    public faculty(String facultyId, String department, String expertise, String officeHours, String officeLocation) {
-        this.facultyId = facultyId;
-        this.department = department;
-        this.expertise = expertise;
-        this.officeHours = officeHours;
-        this.officeLocation = officeLocation;
-        this.coursesTeaching = new ArrayList<>();
-        this.gradebook = new HashMap<>();
-    }
+import java.lang.reflect.Array;
+import java.util.*;
+
+
+   class faculty extends User implements gradingsystem {
+    String facultyuid;
+    String expertise;
+    String officehours;
+    String officelocation;
+    ArrayList<String> coursesTeaching;
+    Map<String,Map<String,Double>> gradebook;
+
     public void assignToCourse(String courseId) {
-        if (!coursesTeaching.contains(courseId)) {
-            coursesTeaching.add(courseId);
-            gradebook.putIfAbsent(courseId, new HashMap<>());
-        }
+        courseId  =courseId;
     }
-
+    public void viewStudentRoster(String courseId) {
+        System.out.println("Student roster is assigned to course "+courseId);
+    }
     public void assignGrade(String courseId, String studentId, double grade) {
-        if (gradebook.containsKey(courseId)) {
-            gradebook.get(courseId).put(studentId, grade);
-        } else {
-            System.out.println("not founded");
-        }
-
+        courseId=courseId;
+        studentId=studentId;
+        grade=grade;
     }
-    public double calculateGPA(String studentId) {
-        double totalGrades = 0;
-        int count = 0;
-        for (Map<String, Double> students : gradebook.values()) {
-            if (students.containsKey(studentId)) {
-                totalGrades += students.get(studentId);
-                count++;
-            }
-        }
-        return count == 0?0.0 : totalGrades / count;
+    @Override
+    public void assignGrade() {
+        System.out.println("graded");
+    }
+    public double calculateGPA() {
+        return 3.0;
+    }
+    @Override
+    public String getLetterGrade() {
+        return "b";
     }
 
-    public String getLetterGrade(double grade) {
-        if (grade >= 90) return "A";
-        if (grade >= 80) return "B";
-        if (grade >= 70) return "C";
-        if (grade >= 60) return "D";
-        return "F";
-    }
-
-    public boolean hasPassed(double grade) {
-        return grade >= 60.0;
-    }
 }
