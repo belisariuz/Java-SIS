@@ -1,3 +1,5 @@
+package project.src;
+
 public abstract class User {
     String userId;
     String userName;
