@@ -128,20 +128,15 @@ public class Department {
         this.name = name;
     }
 
-    public void setHeadOfDepartmentId (String HeadId){
+    public void setHeadOfDepartmentId (String headId){
 
-        this.headOfDepartmentId = headOfDepartmentId;
+        this.headOfDepartmentId = headId;
     }
 
-    public void setHeadOfDepartmentName (String HeadName){
+    public void setHeadOfDepartmentName (String headName){
 
-        this.headOfDepartmentName = headOfDepartmentName;
+        this.headOfDepartmentName = headName;
     }
-
-
-
-
-
 
 
 }

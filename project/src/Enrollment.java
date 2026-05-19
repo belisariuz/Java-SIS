@@ -1,3 +1,5 @@
+package project.src;
+
 public class Enrollment {
     private String enrollmentId;
     private String courseId;
@@ -21,7 +23,7 @@ public class Enrollment {
 
     public void setGrade(double grade) {
         this.grade = grade;
-        this.status = "Completed";
+        this.status = "Grade set succssefully ";
     }
 
     public String getLetterGrade() {
@@ -49,7 +51,7 @@ public class Enrollment {
     }
 
     public void withdraw() {
-        this.status = "Withdrawn";
+        this.status = "Withdrawn succsessfully";
     }
 
     public String getCourseId() {
@@ -74,5 +76,13 @@ public class Enrollment {
 
     public String getEnrollmentDate() {
         return enrollmentDate;
+    }
+
+    public String getEnrollmentId() {
+        return enrollmentId;
+    }
+
+    public int getAttendance() {
+        return attendance;
     }
 }

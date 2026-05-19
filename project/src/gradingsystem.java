@@ -1,11 +1,12 @@
-public interface gradingsystem {
+package project.src;
 
-    double maxGpa = 4;
-    double minPassing = 1;
+public interface GradingSystem {
 
+    double maxGpa = 4.0;
+    double minPassing = 1.0;
 
-    void assignGrade();
-    double calculateGPA();
-    String getLetterGrade();
-    boolean hasPassed();
+    void assignGrade(String courseId, String studentId, double grade);
+    double calculateGPA(String studentId);
+    String getLetterGrade(double grade);
+    boolean hasPassed(double grade);
 }

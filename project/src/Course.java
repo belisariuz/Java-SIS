@@ -1,7 +1,8 @@
+package project.src;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Course {
-
 
 
 
@@ -52,7 +53,7 @@ public class Course {
         System.out.println("Courses is at maximum capacity! \n join the waitlist till a seat is empty or someone withdraws ");
         return false;
     } else if (enrolledStudents.contains(studentId)) {
-        System.out.println("You’re already enrolled in this course !");
+        System.out.println("You're already enrolled in this course !");
         return false;
     }
     enrolledStudents.add(studentId);
@@ -82,7 +83,7 @@ public class Course {
     }
 
     public int getAvailableSeats() {
-        return maxCapacity - enrolledStudents ;
+        return maxCapacity - enrolledStudents.size();
     }
 
     // checking if the students prerequisites meet the prerequisites of the course
@@ -107,10 +108,10 @@ public class Course {
         System.out.println("Semster : " + semster);
         System.out.println("Enrolled students = " + enrolledStudents);
         System.out.println("Max capacity = " + maxCapacity);
-        System.out.println("Seats left = " + (maxCapacity - enrolledStudents);
+        System.out.println("Seats left = " + (maxCapacity - enrolledStudents.size()));
     }
 
-    //etters
+    //getters
 
     public String getCourseId() {
         return courseId;
@@ -208,10 +209,4 @@ public class Course {
     }
 
 
-
-
-
-
-
 }
-

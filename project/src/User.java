@@ -12,20 +12,20 @@ public abstract class User {
     String emergencyContactNumber;
     String phoneNumber;
 
-    public User(String userId , String userName , String password , String name ,  String email , String role , String address ,String emergencyContactName , String emergencyContactNumber , String phoneNumber){
+    public User(String userId , String userName , String password , String name ,  String email , String role){
         this.userId = userId;
         this.userName = userName;
         this.password = password ;
         this.name = name;
         this.email =  email;
         this.role = role;
-        this.address = address;
-        this.emergencyContactName = emergencyContactName;
-        this.emergencyContactNumber = emergencyContactNumber;
-        this.phoneNumber = phoneNumber;
+        this.address = "";
+        this.emergencyContactName = "";
+        this.emergencyContactNumber = "";
+        this.phoneNumber = "";
     }
 
-    public void setUserId(){
+    public void setUserId(String userId){
         this.userId = userId;
     };
 
@@ -34,7 +34,7 @@ public abstract class User {
     };
 
 
-    public void setUserIName(){
+    public void setUserName(String userName){
         this.userName = userName;
     };
 
@@ -43,7 +43,7 @@ public abstract class User {
     };
 
 
-    public void setPassword(){
+    public void setPassword(String password){
         this.password = password;
     };
 
@@ -52,7 +52,7 @@ public abstract class User {
     };
 
 
-    public void setName(){
+    public void setName(String name){
         this.name = name;
     };
 
@@ -62,7 +62,7 @@ public abstract class User {
 
 
 
-    public void setEmail(){
+    public void setEmail(String email){
         this.email = email;
     };
 
@@ -71,7 +71,7 @@ public abstract class User {
     };
 
 
-    public void setRole(){
+    public void setRole(String role){
         this.role = role;
     };
 
@@ -112,7 +112,7 @@ public abstract class User {
     // to change sensetive data as password
 
     public boolean changePassword (String oldPass ,String newPass){
-        if (this.password.equals(oldPass)){
+        if (!this.password.equals(oldPass)){
             System.out.println("Current password is incorrect");
             return false;
         }

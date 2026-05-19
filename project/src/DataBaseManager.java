@@ -14,6 +14,14 @@ public class DataBaseManager {
         initializeDatabase();
     }
 
+    // Singleton getInstance method
+    public static DataBaseManager getInstance() {
+        if (instance == null) {
+            instance = new DataBaseManager();
+        }
+        return instance;
+    }
+
     private void initializeDatabase() {
         try{
             // to use the sqlite driver and open connection with database
@@ -191,11 +199,6 @@ public class DataBaseManager {
             System.err.println(" Error closing database: " + e.getMessage());
         }
     }
-
-
-
-
-
 
 
 }
