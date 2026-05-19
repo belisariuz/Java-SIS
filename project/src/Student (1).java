@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student extends User {
+public class Student extends project.src.User {
     private String studentId;
     private String admissionDate;
     private String academicStatus;
@@ -18,7 +18,10 @@ public class Student extends User {
     }
 
     public boolean registerForCourse(Enrollment enrollment) {
-        int currentCredits = enrolledCourses.stream().mapToInt(Enrollment::getCreditHours).sum();
+        int currentCredits = 0;
+        for (int i = 0; i < enrolledCourses.size(); i++) {
+            currentCredits += enrolledCourses.get(i).getCreditHours();
+        }
         if (currentCredits + enrollment.getCreditHours() <= maxCredits) {
             enrolledCourses.add(enrollment);
             return true;
@@ -41,7 +44,8 @@ public class Student extends User {
 
     public void viewGrades() {
         System.out.println("Grades for " + getName() + ":");
-        for (Enrollment e : enrolledCourses) {
+        for (int i = 0; i < enrolledCourses.size(); i++) {
+            Enrollment e = enrolledCourses.get(i);
             System.out.println(e.getCourseTitle() + ": " + e.getLetterGrade() + " (" + e.getGrade() + ")");
         }
     }
@@ -51,13 +55,18 @@ public class Student extends User {
             return 0.0;
         double totalPoints = 0;
         int totalCredits = 0;
-        for (Enrollment e : enrolledCourses) {
+        for (int i = 0; i < enrolledCourses.size(); i++) {
+            Enrollment e = enrolledCourses.get(i);
             if (e.getStatus().equals("Completed")) {
                 totalPoints += e.getGradePoints() * e.getCreditHours();
                 totalCredits += e.getCreditHours();
             }
         }
-        return totalCredits == 0 ? 0.0 : totalPoints / totalCredits;
+        if (totalCredits == 0) {
+            return 0.0;
+        } else {
+            return totalPoints / totalCredits;
+        }
     }
 
     @Override
@@ -76,7 +85,8 @@ public class Student extends User {
         System.out.println("Academic Status: " + academicStatus);
         System.out.println("GPa: " + calculateGPA());
         System.out.println("Courses:");
-        for (Enrollment e : enrolledCourses) {
+        for (int i = 0; i < enrolledCourses.size(); i++) {
+            Enrollment e = enrolledCourses.get(i);
             System.out.println(
                     "course: " + e.getCourseId() + ": " + e.getCourseTitle() + " Credits: " + e.getCreditHours()
                             + "  Grade: " + e.getLetterGrade());
