@@ -6,19 +6,20 @@ import java.util.List;
 import java.util.Map;
 public class faculty extends User {
     private String facultyId;
-    private String department;
+    private String departmentId;
     private String expertise;
-    private List<String> coursesTeaching;
     private String officeHours;
     private String officeLocation;
+    private List<String> coursesAvailable;
     private Map<String, Map<String, Double>> gradebook;
     public faculty(String facultyId, String department, String expertise, String officeHours, String officeLocation) {
+        super();
         this.facultyId = facultyId;
         this.department = department;
         this.expertise = expertise;
         this.officeHours = officeHours;
         this.officeLocation = officeLocation;
-        this.coursesTeaching = new ArrayList<>();
+        this.coursesAvailable = new ArrayList<>();
         this.gradebook = new HashMap<>();
     }
     public void assignToCourse(String courseId) {

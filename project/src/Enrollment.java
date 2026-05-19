@@ -1,18 +1,22 @@
 public class Enrollment {
+    private String enrollmentId;
     private String courseId;
     private String courseTitle;
     private int creditHours;
     private double grade;
     private String status;
     private String enrollmentDate;
+    private int attendance ;
 
-    public Enrollment(String courseId, String courseTitle, int creditHours, String enrollmentDate) {
+    public Enrollment(String courseId, String courseTitle, int creditHours, String enrollmentDate , String enrollmentId , int attendance) {
         this.courseId = courseId;
         this.courseTitle = courseTitle;
         this.creditHours = creditHours;
         this.grade = 0.0;
         this.status = "Enrolled";
         this.enrollmentDate = enrollmentDate;
+        this.enrollmentId = enrollmentId ;
+        this.attendance = attendance ;
     }
 
     public void setGrade(double grade) {
